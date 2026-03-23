@@ -598,13 +598,4 @@ app.add_handler(CommandHandler("stats",stats))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND,menu))
 app.add_handler(PollAnswerHandler(receive_answer))
 
-import time
-
-while True:
-    try:
-        print("Bot started...")
-        app.run_polling()
-    except Exception as e:
-        print(f"Error: {e}")
-        print("Restarting bot in 5 seconds...")
-        time.sleep(5)
+app.run_polling()
